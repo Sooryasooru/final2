@@ -9,15 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions\checkout@v3
-      - uses: actions\setup-python@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
       - name: Intsall dependencies
-        run: pip install -r requirements
+        run: pip install -r requirements.txt
+
       - name: Run tests
         run: python -m pytest
+        
       - name: Run train
         run: python -m src.train
 
